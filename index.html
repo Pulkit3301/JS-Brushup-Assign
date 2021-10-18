@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo App</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://kit.fontawesome.com/ce160d9ce0.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/ce160d9ce0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="wrapper">
-        <header>Todo App</header>
-        <div class="input-container">
-            <input class="input-value" type="text" placeholder="Add your new todo">
-            <button><i class="fas fa-plus"></i></button>
-        </div>
-        <ul class="todo-list">
-          <!--   Data Comes From Local Storage -->
-        </ul>
-        <div class="footer">
-            <span>You Have <span class="task-numbers"></span> pending Tasks</span>
-            <button>Clear All</button>
-        </div>
+      <header>Todo App</header>
+      <div class="error-container">
+        <span></span>
+      </div>
+
+      <div class="input-container">
+        <input
+          class="input-value"
+          type="text"
+          placeholder="Add your new todo"
+        />
+        <button class="active"><i class="fas fa-plus"></i></button>
+      </div>
+      <ul class="todo-list">
+        <!--   Data Comes From Local Storage -->
+      </ul>
+      <div class="footer">
+        <span>You Have <span class="task-numbers"></span> pending Tasks</span>
+        <button>Clear All</button>
+      </div>
     </div>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
