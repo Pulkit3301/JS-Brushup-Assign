@@ -1,5 +1,6 @@
 const inputValue = document.querySelector(".input-container input");
-const addBtn = document.querySelector(".input-container button");
+const addBtn = document.querySelector(".input-container .add-btn");
+const searchBtn = document.querySelector(".input-container .search-btn");
 const list = document.querySelector(".todo-list");
 const deleteAllBtn = document.querySelector(".footer button");
 const errorMsg = document.querySelector(".error-container span");
@@ -13,7 +14,31 @@ const errorMsg = document.querySelector(".error-container span");
         addBtn.classList.remove('active');
     }
 } */
-showTasks();
+let getlocalStorage1 = localStorage.getItem("New Todo");
+showTasks(getlocalStorage1);
+/*Search Btn Functionality Added*/
+searchBtn.onclick = () => {
+  let getlocalStorage = JSON.parse(localStorage.getItem("New Todo"));
+  let newStore = [];
+  getlocalStorage.map((val) => {
+    if (val.toUpperCase().indexOf(inputValue.value.toUpperCase()) > -1) {
+      newStore = [...newStore, val];
+    }
+  });
+  if (newStore.length == 0) {
+    errorMsg.classList.add("red");
+    errorMsg.innerHTML = "No Results Match Your Search";
+    setTimeout(function () {
+      errorMsg.innerHTML = "";
+      errorMsg.classList.remove("red");
+    }, 3000);
+  }
+  showTasks(JSON.stringify(newStore));
+  inputValue.onclick = () => {
+    showTasks(JSON.stringify(getlocalStorage));
+  };
+};
+showTasks(getlocalStorage1);
 addBtn.onclick = () => {
   let userData = inputValue.value;
   if (userData.trim() == 0) {
@@ -38,12 +63,12 @@ addBtn.onclick = () => {
     }
     listArr.push(userData);
     localStorage.setItem("New Todo", JSON.stringify(listArr));
-    showTasks();
+    getlocalStorage = localStorage.getItem("New Todo");
+    showTasks(getlocalStorage);
   }
 };
 
-function showTasks() {
-  let getlocalStorage = localStorage.getItem("New Todo");
+function showTasks(getlocalStorage) {
   if (getlocalStorage == null) {
     listArr = [];
   } else {
@@ -69,11 +94,12 @@ function deleteTask(index) {
   listArr = JSON.parse(getlocalStorage);
   listArr.splice(index, 1);
   localStorage.setItem("New Todo", JSON.stringify(listArr));
-  showTasks();
+  showTasks(getlocalStorage);
 }
 // delete All task function
 deleteAllBtn.onclick = () => {
   listArr = [];
   localStorage.setItem("New Todo", JSON.stringify(listArr));
-  showTasks();
+  let getlocalStorage = localStorage.getItem("New Todo");
+  showTasks(getlocalStorage);
 };
