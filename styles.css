@@ -1,117 +1,136 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-body{
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(to bottom,#68EACC 0%, #497BE8 100%);
+body {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #68eacc 0%, #497be8 100%);
 }
-.wrapper{
-    margin: 120px auto;
-    max-width: 400px;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    border-radius: 0.85rem;
-    padding: 25px;
+/*
+Error Viewing Page
+*/
+.error-container {
+  margin-top: 20px;
+  height: 20px;
+  padding: 0;
+  text-align: center;
 }
-.wrapper header{
-    font-size: 30px;
-    font-weight: 600;
+.error-container span {
+  font-weight: bold;
 }
-.input-container{
-    display: flex;
-    height: 45px;
-    width: 100%;
-    margin: 20px 0;
+.error-container span.red {
+  color: red;
 }
-.input-container input{
-    width: 85%;
-    height: 100%;
-    border: 1px solid #ccc;
-    font-size: 17px;
-    border-radius: 3px;
-    padding-left: 15px;
-    outline: none;
+.error-container span.green {
+  color: green;
 }
-.input-container button{
-    width: 60px;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: #8E49E8;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    border-radius: 3px;
-    margin-left: 5px;
-    transition: 0.4s;
-    opacity: 0.6;
-    pointer-events: none;
+
+.wrapper {
+  margin: 120px auto;
+  max-width: 400px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 0.85rem;
+  padding: 25px;
 }
-.input-container button.active{
-    opacity: 1;
-    pointer-events: auto;
+.wrapper header {
+  font-size: 30px;
+  font-weight: 600;
 }
-.input-container button:hover{
-    background: #7124e4;
+.input-container {
+  display: flex;
+  height: 45px;
+  width: 100%;
+  margin: 20px 0;
 }
-.todo-list{
-max-height: 250px;
-overflow-y: auto;
+.input-container input {
+  width: 85%;
+  height: 100%;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  border-radius: 3px;
+  padding-left: 15px;
+  outline: none;
 }
-.todo-list li{
-    list-style: none;
-    height: 45px;
-    line-height: 45px;
-    position: relative;
-    background: #f2f2f2;
-    border-radius: 3px;
-    margin-bottom: 8px;
-    padding: 0 15px;
-    cursor: default;
-    overflow: hidden;
+.input-container button {
+  width: 60px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: #8e49e8;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 5px;
+  transition: 0.4s;
+  opacity: 0.6;
+  pointer-events: none;
 }
-.todo-list li span{
-    position: absolute;
-    right: -45px;
-    color: #fff;
-    width: 45px;
-    text-align: center;
-    background: #e74c3c;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.input-container button.active {
+  opacity: 1;
+  pointer-events: auto;
 }
-.todo-list li:hover span{
-    right: 0px;
+.input-container button:hover {
+  background: #7124e4;
 }
-.footer{
-    display: flex;
-    width: 100%;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: space-between;
+.todo-list {
+  max-height: 250px;
+  overflow-y: auto;
 }
-.footer button{
-    border: none;
-    outline: none;
-    background: #8E49E8;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 6px 10px;
-    transition: 0.4s;
-    opacity: 0.6;
-    pointer-events: none;
+.todo-list li {
+  list-style: none;
+  height: 45px;
+  line-height: 45px;
+  position: relative;
+  background: #f2f2f2;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  padding: 0 15px;
+  cursor: default;
+  overflow: hidden;
 }
-.footer button.active{
-    opacity: 1;
-    pointer-events: auto;
+.todo-list li span {
+  position: absolute;
+  right: -45px;
+  color: #fff;
+  width: 45px;
+  text-align: center;
+  background: #e74c3c;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.footer button:hover{
-    background: #7124e4;
+.todo-list li:hover span {
+  right: 0px;
+}
+.footer {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer button {
+  border: none;
+  outline: none;
+  background: #8e49e8;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px 10px;
+  transition: 0.4s;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.footer button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.footer button:hover {
+  background: #7124e4;
 }
