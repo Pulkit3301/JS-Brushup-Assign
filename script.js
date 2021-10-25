@@ -39,6 +39,7 @@ searchBtn.onclick = () => {
   };
 };
 showTasks(getlocalStorage1);
+/* Add Button Functionality */
 addBtn.onclick = () => {
   let userData = inputValue.value;
   if (userData.trim() == 0) {
@@ -49,22 +50,31 @@ addBtn.onclick = () => {
       errorMsg.classList.remove("red");
     }, 3000);
   } else {
-    errorMsg.classList.add("green");
-    errorMsg.innerHTML = "Item Added Successfully";
-    setTimeout(function () {
-      errorMsg.innerHTML = "";
-      errorMsg.classList.remove("green");
-    }, 3000);
     let getlocalStorage = localStorage.getItem("New Todo");
     if (getlocalStorage == null) {
       listArr = [];
     } else {
       listArr = JSON.parse(getlocalStorage);
     }
-    listArr.push(userData);
-    localStorage.setItem("New Todo", JSON.stringify(listArr));
-    getlocalStorage = localStorage.getItem("New Todo");
-    showTasks(getlocalStorage);
+    if (listArr.includes(userData)) {
+      errorMsg.classList.add("red");
+      errorMsg.innerHTML = "This Item Allready Exists";
+      setTimeout(function () {
+        errorMsg.innerHTML = "";
+        errorMsg.classList.remove("red");
+      }, 3000);
+    } else {
+      listArr.push(userData);
+      errorMsg.classList.add("green");
+      errorMsg.innerHTML = "Item Added Successfully";
+      setTimeout(function () {
+        errorMsg.innerHTML = "";
+        errorMsg.classList.remove("green");
+      }, 3000);
+      localStorage.setItem("New Todo", JSON.stringify(listArr));
+      getlocalStorage = localStorage.getItem("New Todo");
+      showTasks(getlocalStorage);
+    }
   }
 };
 
