@@ -94,6 +94,7 @@ function deleteTask(index) {
   listArr = JSON.parse(getlocalStorage);
   listArr.splice(index, 1);
   localStorage.setItem("New Todo", JSON.stringify(listArr));
+  getlocalStorage = localStorage.getItem("New Todo");
   showTasks(getlocalStorage);
 }
 // delete All task function
